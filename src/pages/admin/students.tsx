@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useQuery, gql } from '@apollo/client';
+import { useQuery, gql, useLazyQuery } from '@apollo/client';
 
 export default function Home() {
     const router = useRouter()
@@ -15,7 +15,7 @@ export default function Home() {
       }
     }
   `;
-  const {data, loading, error, refetch } = useQuery(GET_STUDENTS);
+  const [fetch, { data }] = useLazyQuery(GET_STUDENTS);
   console.log('data', data);
   
   return (
@@ -23,7 +23,7 @@ export default function Home() {
    <div >
     <h1>Students</h1>
     <Link href="/">Home</Link>
-    <h2 onClick={() => router.push('/')}>Voltar Home(router)</h2>
+    <h2 onClick={() => fetch()}>Fetch</h2>
 
    </div>
   )
