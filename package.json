@@ -17,11 +17,12 @@
     "react-dom": "latest"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
-    "typescript": "latest"
+    "typescript": "^5.2.2"
   }
 }
