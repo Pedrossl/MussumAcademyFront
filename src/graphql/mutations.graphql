@@ -1,0 +1,26 @@
+mutation deleteOneStudent($input: DeleteOneStudentInput!){
+    deleteOneStudent(input:$input){
+        id
+    }
+}
+
+mutation createOneStudent($input: CreateOneStudentInput!){
+    createOneStudent(input:$input){
+        name
+        key
+    }
+}
+
+
+mutation createOneDicipline($input: CreateOneDiciplineInput!) {
+  createOneDicipline(input: $input) {
+    name
+  }
+}
+
+mutation deleteOneDicipline($input: DeleteOneDiciplineInput!) {
+  deleteOneDicipline(input: $input) {
+    id
+  }
+}
+

@@ -1,0 +1,27 @@
+query GetStudents
+{
+	students{
+		nodes{
+			id
+			key
+			name
+		}
+	}
+}
+
+query GetDisciplines
+{
+   
+	diciplines{
+		nodes{
+			id
+			name
+			students{
+				nodes{
+					name
+				}
+			}
+				}
+			}
+		}
+
