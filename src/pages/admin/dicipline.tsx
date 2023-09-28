@@ -1,10 +1,12 @@
 import React from 'react';
 import { useDeleteOneDiciplineMutation, useGetDisciplinesQuery } from '../../../graphql/generated';
-import Link from 'next/link';
+
+import { useRouter } from 'next/router';
 
 const Disciplines = () => {
   const { data } = useGetDisciplinesQuery();
   const [deleteOneDiscipline] = useDeleteOneDiciplineMutation();
+  const router = useRouter();
 
   const deleteOne = async (id:string) => {
     await deleteOneDiscipline({
@@ -13,11 +15,15 @@ const Disciplines = () => {
     });
   };
 
+  const handleViewStudentsClick = () => {
+    router.push('/admin/students');  // Navigate to the students page
+  };
+
   return (
     <div className="bg-black min-h-screen py-6">
-      <Link href="/admin/students" className="text-blue-400 underline mb-4 block text-center">
+      <button onClick={handleViewStudentsClick} className="text-blue-400 underline mb-4 block m-auto hover:text-opacity-75 hover:text-blue-600">
         Ver Estudantes
-      </Link>
+      </button>
       <div className="container mx-auto">
         <h1 className="text-3xl font-bold text-white text-center mb-10">Lista de Disciplinas</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
