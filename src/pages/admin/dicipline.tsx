@@ -16,7 +16,7 @@ const Disciplines = () => {
   };
 
   const handleViewStudentsClick = () => {
-    router.push('/admin/students');  // Navigate to the students page
+    router.push('/admin/students');
   };
 
   return (
